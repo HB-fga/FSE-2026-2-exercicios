@@ -6,12 +6,12 @@
 int main (void)
 {
   if (wiringPiSetup () == -1)
-    return 1 ;
+    return 1;
 
-  pinMode (4, OUTPUT) ;         // aka BCM_GPIO pin 23
-  pinMode (27, INPUT) ;         // aka BCM_GPIO pin 24
+  pinMode(4, OUTPUT);
+  pinMode(27, INPUT);
 
-  digitalWrite (4, 0) ;       // Off
+  digitalWrite(4, 0);
 
   pullUpDnControl(27, PUD_UP);
   for (;;)
@@ -19,12 +19,12 @@ int main (void)
     int value = digitalRead(27);
     if(HIGH == value) // TURN OFF WHEN IDLE
     {
-      digitalWrite (4, 0) ;       // Off
+      digitalWrite(4, 0);
     }
     else // TURN ON WHEN PRESSED
     {
-      digitalWrite (4, 1) ;
+      digitalWrite(4, 1);
     }
   }
-  return 0 ;
+  return 0;
 }
